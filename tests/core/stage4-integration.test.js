@@ -19,6 +19,7 @@ function checkAnalysis(analysis) {
   for (const result of analysis.results) {
     expect(typeof result.value === "string" || Number.isFinite(result.value), `Result '${result.label}' needs text or a finite number, never a Boolean or null. ${hint}`).toBe(true);
   }
+  
   expect(analysis.verificationCases.length, `Implement all three approved Section 9 cases. ${hint}`).toBeGreaterThanOrEqual(3);
   for (const check of analysis.verificationCases) {
     expect(typeof check.label === "string" && check.label.trim().length > 0, `Verification cases need 'label', not 'title'. ${hint}`).toBe(true);
